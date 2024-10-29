@@ -9,7 +9,7 @@ class lecture{
 		string course;
 		int num;
 	public:
-		lecture()//inisitialise the value 
+		lecture() 
 		{
 			this->name=name;
 			this->sub=sub;
@@ -17,7 +17,7 @@ class lecture{
 			this->num=num;
 			
 		};
-		void detail()//to take input from user
+		void set()
 		{
 			cout<<"Enter the Lectrurer Name :";
 			cin>>name;
@@ -28,30 +28,26 @@ class lecture{
 			cout<<"Enter the Number of lectrur :";
 			cin>>num;
 		}
-		void display()//to display the details
+		void get()
 		{
-			cout<<"\n-------------Lecture Management System--------------";
+			cout<<"\nLecture Management System";
 			cout<<"\nName is :-"<<name;
 			cout<<"\nSubject is :-"<<sub;
 			cout<<"\nCourse is :-"<<course;
-			cout<<"\nNumber of lecturer is :-"<<num;
-			cout<<"\n";	
+			cout<<"\nNumber of lecturer is :-"<<num;	
 		}
-		
-		
-};
-
+	};
 int main()
 {
-	lecture lec[10];//array to store 5 details
+	lecture lec[10];
 	int i;
-	for(i=1;i<6;i++)//for loop to enter the detail in array
+	for(i=1;i<6;i++)
 	{
 		cout<<"\nEnter the detail of "<<i<<"\n";
-		lec[i].detail();//call of function detial to take input
+		lec[i].set();
 	}
 	for(i=0;i<6;i++)
 	{
-		lec[i].display();//call of function display to see output
+		lec[i].get();
 	}
 }
