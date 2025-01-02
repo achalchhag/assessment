@@ -3,7 +3,9 @@ package assessment;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class corejava {
 
@@ -68,6 +70,33 @@ public class corejava {
 		} catch (SQLException e) {
 			System.out.println("Data not deleted");
 		}
+		
+		String datafetch="select * from product";
+		Statement smt=null;
+		
+		try {
+			smt=cn.createStatement();
+		} catch (SQLException e) {
+			System.out.println("Smt not working");
+		}
+		
+		ResultSet rs=null;
+		try {
+			rs=smt.executeQuery(datafetch);
+		} catch (SQLException e) {
+			System.out.println("Data not found");
+		}
+		
+		try {
+			while(rs.next()) {
+				System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getInt(3)+" "+rs.getInt(4)+" "+rs.getString(5));
+			}
+		} catch (SQLException e) {
+			System.out.println("Data not fetch");
+			
+		}
+		
+		
 		
 		
 		
